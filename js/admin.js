@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // SHA-256 хеш для пароля 8523146
+    const PASS_HASH = "5ca3c4bc1619808a9ec3848b7a635bcbd25ed1e8a8ea1eef7dbcf9efd01ee7c9";
+
     async function hashPassword(password) {
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
@@ -7,12 +10,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
+    // Автоперевірка доступу
     if (sessionStorage.getItem('isAdmin') !== 'true') {
         const userInput = prompt("Введіть пароль адміністратора:");
 
         if (userInput) {
-            const inputHash = await hashPassword(userInput);
-            if (inputHash === CONFIG.PASS_HASH) {
+            const inputHash = await hashPassword(userInput.trim());
+            if (inputHash === PASS_HASH) {
                 sessionStorage.setItem('isAdmin', 'true');
             } else {
                 alert("Невірний пароль!");
@@ -25,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Елементи інтерфейсу
     const adminDrawer = document.getElementById('adminDrawer');
     const adminOverlay = document.getElementById('adminOverlay');
     const openDrawerBtn = document.getElementById('openDrawerBtn');
@@ -50,6 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'index.html';
     });
 
+    // Перемикач вкладок
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -63,6 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
+    // Дефолтна дата
     const todayStr = new Date().toISOString().split('T')[0];
     document.getElementById('taskDateInput').value = todayStr;
     document.getElementById('noteDateInput').value = todayStr;
@@ -73,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${parts[2]}.${parts[1]}.${parts[0]}`;
     }
 
-    // --- Tasks ---
+    // --- Логіка Задач (To-Do) ---
     const taskInput = document.getElementById('newTaskInput');
     const taskDateInput = document.getElementById('taskDateInput');
     const taskList = document.getElementById('taskList');
@@ -133,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    // --- Notes ---
+    // --- Логіка Нотаток та Фінансів ---
     const noteInput = document.getElementById('newNoteInput');
     const noteDateInput = document.getElementById('noteDateInput');
     const notesList = document.getElementById('notesList');
