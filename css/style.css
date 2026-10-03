@@ -487,32 +487,31 @@ section {
     font-size: 12px;
 }
 
-/* --- АДАПТИВНІСТЬ ДЛЯ ВСІХ МОБІЛЬНИХ (ПЛАНШЕТИ ТА СМАРТФОНИ) --- */
-@media screen and (max-width: 850px) {
+/* --- ЗАЛІЗОБЕТОННИЙ ФІКС ДЛЯ МОБІЛЬНИХ (Головна сторінка) --- */
+@media screen and (max-width: 992px) {
     .burger {
         display: flex !important;
     }
 
-    /* Ховаємо горизонтальні посилання і робимо мобільне меню */
+    /* Жорстко ховаємо текстове меню */
     .nav-links {
-        position: fixed;
+        position: fixed !important;
         top: 0;
-        right: -100vw;
+        right: -120vw !important;
         width: 100vw;
         height: 100vh;
         background: rgba(11, 13, 25, 0.98);
         backdrop-filter: blur(20px);
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
         justify-content: center;
-        gap: 24px;
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 25px;
+        transition: right 0.3s ease-in-out;
         z-index: 1000;
-        padding: 0 20px;
     }
 
     .nav-links.active {
-        right: 0;
+        right: 0 !important;
     }
 
     .nav-links a {
@@ -521,12 +520,12 @@ section {
 
     .hero {
         min-height: auto;
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 20px;
     }
 
     section {
-        padding: 25px 0;
+        padding: 40px 0;
     }
 
     .hero-content, .about-grid, .portfolio-grid, .services-grid {
@@ -534,23 +533,14 @@ section {
     }
 
     .hero-name {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .hero-title {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .contact-buttons {
         flex-direction: column;
-    }
-
-    .code-content {
-        font-size: 11px;
-        padding: 10px;
-    }
-
-    .btn {
-        width: 100%;
     }
 }
