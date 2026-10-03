@@ -1,0 +1,248 @@
+.admin-main {
+    padding-top: 120px;
+    min-height: 80vh;
+}
+
+.workspace-welcome {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.workspace-welcome h2 {
+    color: var(--purple-glow);
+    margin-bottom: 15px;
+}
+
+.workspace-welcome p {
+    color: var(--text-muted);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Drawer */
+.admin-drawer {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 420px;
+    height: 100vh;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border-hover);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-drawer.open {
+    right: 0;
+}
+
+.admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.admin-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.admin-drawer-header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-drawer-header h3 {
+    font-size: 18px;
+    color: var(--purple-glow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-drawer-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-drawer-btn:hover {
+    color: var(--purple-glow);
+}
+
+/* Tabs */
+.admin-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-dark);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.tab-btn.active {
+    color: var(--purple-glow);
+    border-bottom: 2px solid var(--purple-glow);
+    background: var(--bg-card);
+}
+
+.admin-drawer-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Forms & Inputs */
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: var(--bg-dark);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.input-form input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row input[type="date"] {
+    flex: 1;
+    padding: 8px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    font-size: 13px;
+    color-scheme: dark;
+}
+
+/* Task & Note Cards */
+.task-list, .notes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.item-card.completed {
+    opacity: 0.5;
+}
+
+.item-card.completed .item-title {
+    text-decoration: line-through;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-title {
+    font-size: 14px;
+    color: #fff;
+}
+
+.item-date {
+    font-size: 11px;
+    color: var(--purple-glow);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.item-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.item-actions i {
+    cursor: pointer;
+    color: var(--text-dim);
+    transition: var(--transition);
+}
+
+.item-actions i:hover {
+    color: var(--purple-glow);
+}
+
+@media (max-width: 480px) {
+    .admin-drawer {
+        width: 100vw;
+        right: -100vw;
+    }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solipsist | Developer Workspace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">Solipsist Workspace</span><span class="logo-dot">.</span>
+            </div>
+            <div class="nav-actions">
+                <button id="openDrawerBtn" class="btn btn-purple"><i class="fas fa-bars"></i> Записник & To-Do</button>
+                <a href="index.html" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> На сайт</a>
+                <button id="logoutBtn" class="btn btn-outline" style="border-color: #ff5f56; color: #ff5f56;"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container admin-main">
+        <div class="workspace-welcome">
+            <h2><i class="fas fa-user-shield"></i> Особистий Кабінет</h2>
+            <p>Натисни кнопку вгорі справа, щоб відкрити панель із задачами, дедлайнами та фінансовими нотатками з датами.</p>
+        </div>
+    </main>
+
+    <!-- Висувна панель СПРАВА -->
+    <div id="adminDrawer" class="admin-drawer">
+        <div class="admin-drawer-header">
+            <h3><i class="fas fa-book"></i> Особисті Записи</h3>
+            <button id="closeDrawerBtn" class="close-drawer-btn"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="todoTab"><i class="fas fa-tasks"></i> Задачі & Дедлайни</button>
+            <button class="tab-btn" data-tab="notesTab"><i class="fas fa-wallet"></i> Записник & Фінанси</button>
+        </div>
+
+        <div class="admin-drawer-body">
+            
+            <!-- Вкладка 1: Задачі -->
+            <div id="todoTab" class="tab-content active">
+                <div class="input-form">
+                    <input type="text" id="newTaskInput" placeholder="Назва задачі...">
+                    <div class="input-row">
+                        <input type="date" id="taskDateInput">
+                        <button id="addTaskBtn" class="btn btn-purple"><i class="fas fa-plus"></i> Додати</button>
+                    </div>
+                </div>
+                <ul class="task-list" id="taskList"></ul>
+            </div>
+
+            <!-- Вкладка 2: Нотатки / Фінанси з датами -->
+            <div id="notesTab" class="tab-content">
+                <div class="input-form">
+                    <input type="text" id="newNoteInput" placeholder="Запис (напр: +$15 фріланс, Днюха...)">
+                    <div class="input-row">
+                        <input type="date" id="noteDateInput">
+                        <button id="addNoteBtn" class="btn btn-purple"><i class="fas fa-plus"></i> Записати</button>
+                    </div>
+                </div>
+                <div class="notes-list" id="notesList"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="adminOverlay" class="admin-overlay"></div>
+
+    <script src="config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

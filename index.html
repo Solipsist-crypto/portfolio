@@ -3,460 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ростислав (Solipsist) - Python розробник. Автоматизація, боти, веб-додатки, API, торгові системи.">
-    <title>Solipsist | Python Developer</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Мошенський Ростислав (Solipsist) - Python / Fullstack Developer.">
+    <title>Solipsist | Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <span class="logo-text">Solipsist</span>
-                <span class="logo-dot">.</span>
+                <span class="logo-text">Solipsist</span><span class="logo-dot">.</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Головна</a></li>
-                <li><a href="#about">Про мене</a></li>
-                <li><a href="#services">Послуги</a></li>
-                <li><a href="#portfolio">Портфоліо</a></li>
-                <li><a href="#contact">Контакти</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="adminBtn" title="Admin Area"><i class="fas fa-lock"></i></a></li>
             </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="glitch" data-text="Ростислав">Ростислав</h1>
-                    <h2 class="subtitle">Python Developer <span class="typing-cursor">|</span></h2>
-                    <p class="hero-description">
-                        Створюю backend системи, API та торгові боти,
-                        що працюють 24/7 та приносять результат
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">
-                            <span>Мої проєкти</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Зв'язатися</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </a>
-                    </div>
+        <div class="floating-icons">
+            <i class="fab fa-python icon-py"></i>
+            <i class="fab fa-js icon-js"></i>
+            <i class="fab fa-docker icon-docker"></i>
+            <i class="fab fa-git-alt icon-git"></i>
+        </div>
+
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="greeting">Hi, I'm</span>
+                <h1 class="hero-name">Ростислав (Solipsist)</h1>
+                <h2 class="hero-title">Python Developer <span>| Backend, Bots & Automation</span></h2>
+                <p class="hero-description">
+                    Спеціалізуюсь на розробці високопродуктивних backend-систем, FastAPI, парсерів даних, Telegram/торгових ботів, Computer Vision та веб-додатків.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-purple">Hire Me</a>
+                    <a href="#portfolio" class="btn btn-outline">View Work</a>
                 </div>
-                <div class="hero-image">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="code-content">
-                            <pre><code><span class="keyword">class</span> <span class="class-name">Developer</span>:
+            </div>
+
+            <div class="hero-avatar-wrapper">
+                <div class="avatar-glow"></div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="window-title">developer.py</span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code><span class="keyword">class</span> <span class="class-name">Developer</span>:
     <span class="keyword">def</span> <span class="function">__init__</span>(<span class="param">self</span>):
-        <span class="param">self</span>.name = <span class="string">"Solipsist"</span>
-        <span class="param">self</span>.skills = [
-            <span class="string">"Python"</span>,
-            <span class="string">"Trading Bots"</span>,
-            <span class="string">"Backend API"</span>,
-            <span class="string">"Frontend"</span>,
-            <span class="string">"Flask/FastAPI"</span>
+        <span class="param">self</span>.name = <span class="string">"Rostyslav"</span>
+        <span class="param">self</span>.stack = [
+            <span class="string">"Python / FastAPI / Flask"</span>,
+            <span class="string">"Telegram & Trading Bots"</span>,
+            <span class="string">"Web Scraping & Automation"</span>,
+            <span class="string">"MediaPipe / Computer Vision"</span>
         ]
 
-    <span class="keyword">def</span> <span class="function">solve_problem</span>(<span class="param">self</span>):
-        <span class="keyword">return</span> <span class="string">"Elegant solution"</span></code></pre>
-                        </div>
+    <span class="keyword">def</span> <span class="function">status</span>(<span class="param">self</span>):
+        <span class="keyword">return</span> <span class="string">"Ready for new projects 🚀"</span></code></pre>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">01.</span>
-                Про мене
-            </h2>
-            <div class="about-content">
-                <div class="about-text">
+            <h2 class="section-title"><span class="title-num">01.</span> Про мене</h2>
+            <div class="about-grid">
+                <div class="about-info">
                     <p>
-                        Привіт! Я <strong>Ростислав</strong>, Python розробник з фокусом на створення
-                        backend систем, API та інтелектуальних рішень для бізнесу.
+                        Привіт! Я <strong>Ростислав</strong>, Python-розробник. Створюю backend-системи, RESTful API, інтеграції з базами даних, парсери даних, а також рішення з комп'ютерного зору (MediaPipe/OpenCV) та систем машинного навчання.
                     </p>
                     <p>
-                        Спеціалізуюсь на розробці торгових ботів, backend додатків,
-                        API інтеграцій та frontend інтерфейсів. Мої проєкти працюють 24/7,
-                        обробляючи тисячі запитів та приймаючи рішення в реальному часі.
+                        Маю досвід розробки CRM-систем, інтерактивних ботів, інструментів збору й аналізу даних та систем розпізнавання жестів. Віддаю перевагу чистому коду, надійності та високій швидкості роботи.
                     </p>
-                    <p>
-                        Використовую сучасні технології та best practices для створення
-                        надійних, масштабованих та ефективних рішень.
-                    </p>
-                    <div class="tech-stack">
-                        <h3>Технології, з якими працюю:</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Telegram Bots</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Trading Systems</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>SQL/NoSQL</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-server"></i>
-                                <span>FastAPI/Flask</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-code"></i>
-                                <span>Web Scraping</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Automation</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-docker"></i>
-                                <span>Docker</span>
-                            </div>
-                        </div>
+                    
+                    <h3 class="stack-subtitle">Технічний стек:</h3>
+                    <div class="tech-tags">
+                        <span class="tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tag"><i class="fas fa-bolt"></i> FastAPI / Flask</span>
+                        <span class="tag"><i class="fas fa-spider"></i> BeautifulSoup / Selenium / Scrapy</span>
+                        <span class="tag"><i class="fas fa-robot"></i> Telegram API / Aiogram / Telethon</span>
+                        <span class="tag"><i class="fas fa-database"></i> PostgreSQL / SQLAlchemy</span>
+                        <span class="tag"><i class="fas fa-eye"></i> OpenCV & MediaPipe</span>
+                        <span class="tag"><i class="fab fa-js"></i> Vanilla JS</span>
+                        <span class="tag"><i class="fab fa-git-alt"></i> Git / GitHub</span>
                     </div>
                 </div>
+
                 <div class="about-stats">
                     <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="stat-number" data-target="1000">0</div>
-                        <div class="stat-label">Годин коду</div>
+                        <i class="fas fa-code stat-icon"></i>
+                        <span class="stat-num" data-target="1000">0</span>
+                        <span class="stat-desc">Годин розробки</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <div class="stat-number" data-target="15">0</div>
-                        <div class="stat-label">Проєктів</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-coffee"></i>
-                        </div>
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Чашок кави</div>
+                        <i class="fas fa-project-diagram stat-icon"></i>
+                        <span class="stat-num" data-target="15">0</span>
+                        <span class="stat-desc">Завершених проєктів</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">02.</span>
-                Послуги
-            </h2>
+            <h2 class="section-title"><span class="title-num">02.</span> Послуги</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Telegram Боти</h3>
-                    <p>
-                        Розробка інтелектуальних ботів для автоматизації бізнес-процесів,
-                        обробки замовлень, підтримки клієнтів та інтеграції з вашими системами.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Інтеграція з API</li>
-                        <li><i class="fas fa-check"></i> Обробка платежів</li>
-                        <li><i class="fas fa-check"></i> Адмін-панелі</li>
-                        <li><i class="fas fa-check"></i> Аналітика та звіти</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Telegram & Інтерактивні Боти</h3>
+                    <p>Розробка ботів будь-якої складності: від автопродажів, адмін-панелей та прийому платежів до торгових ботів на WebSockets із сповіщеннями в реальному часі.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Торгові Боти</h3>
-                    <p>
-                        Створення автоматизованих торгових систем з AI-аналізом ринку,
-                        ризик-менеджментом та адаптивними стратегіями для криптовалют та форекс.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Технічний аналіз</li>
-                        <li><i class="fas fa-check"></i> Ризик-менеджмент</li>
-                        <li><i class="fas fa-check"></i> Backtesting</li>
-                        <li><i class="fas fa-check"></i> Real-time моніторинг</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-spider"></i></div>
+                    <h3>Парсинг & Web Scraping</h3>
+                    <p>Автоматизований збір та структурація даних із сайтів, e-commerce майданчиків, соціальних мереж та API. Обхід захистів, роботу з проксі та вивантаження в DB/Excel/JSON.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Frontend Розробка</h3>
-                    <p>
-                        Створення сучасних веб-інтерфейсів, адаптивних сайтів,
-                        інтерактивних додатків з використанням HTML, CSS, JavaScript.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Адаптивний дизайн</li>
-                        <li><i class="fas fa-check"></i> React/Vue.js</li>
-                        <li><i class="fas fa-check"></i> Анімації та ефекти</li>
-                        <li><i class="fas fa-check"></i> Оптимізація швидкості</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Скрипти & Автоматизація</h3>
+                    <p>Автоматизація рутинних процесів на ПК та серверах: обробка файлів, синхронізація баз даних, розсилки, інтеграція зовнішніх REST API та системних утиліт.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Автоматизація</h3>
-                    <p>
-                        Автоматизація рутинних завдань, створення скриптів для обробки даних,
-                        інтеграція різних сервісів та оптимізація бізнес-процесів.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Обробка файлів</li>
-                        <li><i class="fas fa-check"></i> Інтеграція API</li>
-                        <li><i class="fas fa-check"></i> Планувальник задач</li>
-                        <li><i class="fas fa-check"></i> Звіти та аналітика</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend & API Розробка</h3>
+                    <p>Створення швидких REST API на FastAPI / Flask, проектування реляційних баз даних (PostgreSQL, SQLite), валідація даних та авторизація користувачів (JWT).</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>API Розробка</h3>
-                    <p>
-                        Створення RESTful API, інтеграція з зовнішніми сервісами,
-                        розробка бекенду для веб та мобільних додатків.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> FastAPI/Flask</li>
-                        <li><i class="fas fa-check"></i> Документація</li>
-                        <li><i class="fas fa-check"></i> Аутентифікація</li>
-                        <li><i class="fas fa-check"></i> Масштабованість</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Computer Vision & Machine Learning</h3>
+                    <p>Розпізнавання жестів та об'єктів у реальному часі (MediaPipe, OpenCV), класифікація даних (Scikit-Learn, Fuzzy Logic) та адаптивні алгоритми.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Робота з Даними</h3>
-                    <p>
-                        Обробка та аналіз великих обсягів даних, створення баз даних,
-                        оптимізація запитів та візуалізація результатів.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> SQL/NoSQL</li>
-                        <li><i class="fas fa-check"></i> Pandas/NumPy</li>
-                        <li><i class="fas fa-check"></i> Оптимізація</li>
-                        <li><i class="fas fa-check"></i> Візуалізація</li>
-                    </ul>
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>CRM & Web-Системи</h3>
+                    <p>Розробка кастомних систем управління бізнесом, обліку відвідуваності, журналів занять, аналітики боргів та автоматичної генерації PDF-звітів.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">03.</span>
-                Портфоліо
-            </h2>
-
-            <div class="portfolio-carousel">
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <!-- Crypto Cards Tracker -->
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <div class="portfolio-overlay">
-                                    <a href="https://github.com/Solipsist-crypto/crypto-cards-tracker" class="portfolio-btn" target="_blank">
-                                        <i class="fab fa-github"></i> View on GitHub
-                                    </a>
-                                </div>
-                                <div class="project-preview">
-                                    <div class="terminal">
-                                        <div class="terminal-header">
-                                            <span class="dot red"></span>
-                                            <span class="dot yellow"></span>
-                                            <span class="dot green"></span>
-                                            <span class="terminal-title">crypto-cards-tracker</span>
-                                        </div>
-                                        <div class="terminal-body">
-                                            <p><span class="success">✓</span> Loading 1000+ cryptocurrencies...</p>
-                                            <p><span class="info">→</span> Filter: Top 100</p>
-                                            <p><span class="success">✓</span> BTC: $80,677 <span class="profit">+2.5%</span></p>
-                                            <p><span class="success">✓</span> ETH: $3,245 <span class="profit">+1.8%</span></p>
-                                            <p><span class="info">→</span> Real-time updates active</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Crypto Cards Tracker</h3>
-                                <p>
-                                    Інтерактивний трекер криптовалют з красивим card-дизайном.
-                                    Відображає 1000+ монет з CoinGecko API, фільтри за топом та змінами цін,
-                                    real-time оновлення кожні 2 хвилини.
-                                </p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">HTML/CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">CoinGecko API</span>
-                                    <span class="tech-tag">Responsive Design</span>
-                                </div>
-                                <div class="portfolio-features">
-                                    <h4>Ключові можливості:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-coins"></i> 1000+ криптовалют з live даними</li>
-                                        <li><i class="fas fa-filter"></i> Фільтри: Top 100/500, Gainers, Losers</li>
-                                        <li><i class="fas fa-chart-bar"></i> Market cap та 24h volume</li>
-                                        <li><i class="fas fa-sync"></i> Автоматичне оновлення цін</li>
-                                        <li><i class="fas fa-mobile-alt"></i> Адаптивний дизайн для всіх пристроїв</li>
-                                    </ul>
-                                </div>
-                            </div>
+            <h2 class="section-title"><span class="title-num">03.</span> Мої проєкти</h2>
+            
+            <div class="portfolio-grid">
+                
+                <!-- Project 1: School CRM (Updated URL) -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-graduation-cap project-type-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/Solipsist-crypto/CRM_school" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
                         </div>
-
-                        <!-- Trading Bot -->
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <div class="portfolio-overlay">
-                                    <a href="https://t.me/Solipsist1" class="portfolio-btn" target="_blank">
-                                        <i class="fab fa-telegram"></i> Замовити проект
-                                    </a>
-                                </div>
-                                <div class="project-preview">
-                                    <div class="terminal">
-                                        <div class="terminal-header">
-                                            <span class="dot red"></span>
-                                            <span class="dot yellow"></span>
-                                            <span class="dot green"></span>
-                                            <span class="terminal-title">adaptive_trading_bot.py</span>
-                                        </div>
-                                        <div class="terminal-body">
-                                            <p><span class="prompt">$</span> python main_adaptive.py</p>
-                                            <p><span class="success">✓</span> Market Analyzer initialized</p>
-                                            <p><span class="success">✓</span> AI Engine loaded</p>
-                                            <p><span class="info">→</span> Market: STRONG_TREND (92%)</p>
-                                            <p><span class="success">✓</span> Position opened: LONG ETH</p>
-                                            <p><span class="profit">+</span> Profit: +$45.23 (+3.2%)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Adaptive Trading Bot</h3>
-                                <p>
-                                    Інтелектуальна торгова система з AI-аналізом ринку, що автоматично
-                                    адаптується до різних ринкових умов. Використовує технічний аналіз,
-                                    динамічний ризик-менеджмент та адаптивні стратегії.
-                                </p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Bybit API</span>
-                                    <span class="tech-tag">Telegram Bot</span>
-                                    <span class="tech-tag">SQLite</span>
-                                    <span class="tech-tag">Pandas</span>
-                                    <span class="tech-tag">Technical Analysis</span>
-                                </div>
-                                <div class="portfolio-features">
-                                    <h4>Ключові можливості:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-brain"></i> AI визначення режиму ринку (Trend/Range/Chaos)</li>
-                                        <li><i class="fas fa-shield-alt"></i> Динамічний ризик-менеджмент</li>
-                                        <li><i class="fas fa-chart-line"></i> Адаптивні торгові стратегії</li>
-                                        <li><i class="fas fa-bell"></i> Real-time сповіщення в Telegram</li>
-                                        <li><i class="fas fa-database"></i> Розширена аналітика та логування</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <h3 class="project-title">Спортивна Школа CRM</h3>
+                    <p class="project-desc">
+                        Система управління спортивною школою (гімнастика/акробатика). Контроль відвідуваності, абонементів, боргів та автогенерація фінансових PDF-звітів.
+                    </p>
+                    <div class="project-tags">
+                        <span>FastAPI</span>
+                        <span>SQLAlchemy</span>
+                        <span>PostgreSQL</span>
+                        <span>Vanilla JS</span>
+                        <span>Railway</span>
                     </div>
                 </div>
 
-                <button class="carousel-btn next" onclick="moveCarousel(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+                <!-- Project 2: Deriv ML Trading Bot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-brain project-type-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/Solipsist-crypto/Deriv_bot" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Deriv ML Trading Bot</h3>
+                    <p class="project-desc">
+                        Асинхронний торговий бот для Deriv (WebSocket API). Сканування ринку (RSI, EMA, Bollinger), збір ML-датасету в PostgreSQL та Telegram-моніторинг.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Asyncio</span>
+                        <span>WebSocket API</span>
+                        <span>PostgreSQL</span>
+                        <span>Telegram API</span>
+                    </div>
+                </div>
 
-            <div class="carousel-dots">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
+                <!-- Project 3: Crypto Cards Tracker -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-coins project-type-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/Solipsist-crypto/crypto-cards-tracker" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Crypto Bubbles & Cards Tracker</h3>
+                    <p class="project-desc">
+                        Інтерактивний трекер криптовалют із візуалізацією плаваючих бульбашок. Live-оновлення 1000+ монет через CoinGecko API та адаптивний дизайн.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3 Animations</span>
+                        <span>JavaScript</span>
+                        <span>CoinGecko API</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Gesture Data Mining & Control System -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-hand-sparkles project-type-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/Solipsist-crypto/gesture-data-mining-system" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Gesture Data Mining & Control System</h3>
+                    <p class="project-desc">
+                        Система аналізу даних та розпізнавання жестів у реальному часі (MediaPipe). Інтеграція алгоритмів ML (MLP, KMeans), Fuzzy Logic та автоматизація ПК.
+                    </p>
+                    <div class="project-tags">
+                        <span>PySide6</span>
+                        <span>MediaPipe</span>
+                        <span>OpenCV</span>
+                        <span>Scikit-Learn</span>
+                        <span>PyAutoGUI</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">04.</span>
-                Контакти
-            </h2>
-            <div class="contact-content">
-                <div class="contact-info" style="max-width: 100%; margin: 0 auto;">
-                    <h3>Давайте працювати разом!</h3>
-                    <p>
-                        Маєте цікавий проєкт або потребуєте розробки?
-                        Зв'яжіться зі мною зручним способом.
-                    </p>
-                    <div class="contact-methods">
-                        <a href="https://t.me/Solipsist1" class="contact-method" target="_blank">
-                            <div class="method-icon">
-                                <i class="fab fa-telegram"></i>
-                            </div>
-                            <div class="method-info">
-                                <h4>Telegram</h4>
-                                <p>@Solipsist1</p>
-                            </div>
-                        </a>
-                        <a href="https://github.com/Solipsist-crypto" class="contact-method" target="_blank">
-                            <div class="method-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="method-info">
-                                <h4>GitHub</h4>
-                                <p>github.com/Solipsist-crypto</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="availability">
-                        <div class="status-indicator"></div>
-                        <span>Доступний для нових проєктів</span>
-                    </div>
+            <h2 class="section-title"><span class="title-num">04.</span> Контакти</h2>
+            <div class="contact-box">
+                <h3>Давайте створимо щось круте разом!</h3>
+                <p>Маєте завдання для розробки чи цікавий проєкт? Напишіть мені в Telegram або перегляньте мої репозиторії на GitHub.</p>
+                <div class="contact-buttons">
+                    <a href="https://t.me/Solipsist1" target="_blank" class="contact-btn telegram">
+                        <i class="fab fa-telegram-plane"></i> @Solipsist1
+                    </a>
+                    <a href="https://github.com/Solipsist-crypto" target="_blank" class="contact-btn github">
+                        <i class="fab fa-github"></i> Solipsist-crypto
+                    </a>
                 </div>
             </div>
         </div>
@@ -464,24 +278,10 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p>&copy; 2026 Solipsist. Всі права захищені.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="https://t.me/Solipsist1" target="_blank" title="Telegram">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="https://github.com/Solipsist-crypto" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <p>&copy; 2026 Rostyslav (Solipsist). Built with pure HTML/CSS/JS.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
