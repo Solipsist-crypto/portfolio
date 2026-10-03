@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${parts[2]}.${parts[1]}.${parts[0]}`;
     }
 
-    // Tasks
+    // --- Логіка Задач (Tasks) ---
     const taskInput = document.getElementById('newTaskInput');
     const taskDateInput = document.getElementById('taskDateInput');
     const taskList = document.getElementById('taskList');
@@ -92,8 +92,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     ${task.date ? `<span class="item-date"><i class="far fa-calendar-alt"></i> Дедлайн: ${formatDate(task.date)}</span>` : ''}
                 </div>
                 <div class="item-actions">
-                    <i class="fas fa-check" onclick="toggleTask(${index})"></i>
-                    <i class="fas fa-trash" onclick="deleteTask(${index})"></i>
+                    <i class="fas fa-check" onclick="toggleTask(${index})" title="Виконано"></i>
+                    <i class="fas fa-edit" onclick="editTask(${index})" title="Редагувати"></i>
+                    <i class="fas fa-trash" onclick="deleteTask(${index})" title="Видалити"></i>
                 </div>
             `;
             taskList.appendChild(li);
@@ -123,7 +124,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderTasks();
     };
 
-    // Notes
+    // ФУНКЦІЯ РЕДАГУВАННЯ ЗАДАЧІ
+    window.editTask = function(index) {
+        const currentText = tasks[index].text;
+        const newText = prompt("Редагувати задачу:", currentText);
+        if (newText !== null && newText.trim() !== "") {
+            tasks[index].text = newText.trim();
+            renderTasks();
+        }
+    };
+
+    // --- Логіка Нотаток (Notes) ---
     const noteInput = document.getElementById('newNoteInput');
     const noteDateInput = document.getElementById('noteDateInput');
     const notesList = document.getElementById('notesList');
@@ -142,7 +153,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <span class="item-date"><i class="far fa-clock"></i> ${formatDate(note.date)}</span>
                 </div>
                 <div class="item-actions">
-                    <i class="fas fa-trash" onclick="deleteNote(${index})"></i>
+                    <i class="fas fa-edit" onclick="editNote(${index})" title="Редагувати"></i>
+                    <i class="fas fa-trash" onclick="deleteNote(${index})" title="Видалити"></i>
                 </div>
             `;
             notesList.appendChild(div);
@@ -164,6 +176,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.deleteNote = function(index) {
         notes.splice(index, 1);
         renderNotes();
+    };
+
+    // ФУНКЦІЯ РЕДАГУВАННЯ НОТАТКИ
+    window.editNote = function(index) {
+        const currentText = notes[index].text;
+        const newText = prompt("Редагувати запис:", currentText);
+        if (newText !== null && newText.trim() !== "") {
+            notes[index].text = newText.trim();
+            renderNotes();
+        }
     };
 
     renderTasks();
