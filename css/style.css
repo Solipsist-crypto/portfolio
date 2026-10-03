@@ -486,10 +486,10 @@ section {
     font-size: 12px;
 }
 
-/* ФІКС ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (iPhone, Android) */
-@media (max-width: 850px) {
+/* ФІКС ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (iPhone Mini, Android) */
+@media (max-width: 900px) {
     .burger {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-links {
@@ -516,7 +516,6 @@ section {
         font-size: 20px;
     }
 
-    /* Прибираємо фіксовану висоту 100vh, щоб не було дірок */
     .hero {
         min-height: auto;
         padding-top: 80px;
