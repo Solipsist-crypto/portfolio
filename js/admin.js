@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-
     async function hashPassword(password) {
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const hashArray = Array.from(new Uint8Array(hashBuffer));
         return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
-
 
     if (sessionStorage.getItem('isAdmin') !== 'true') {
         const userInput = prompt("Введіть пароль адміністратора:");
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // 2. Елементи інтерфейсу
     const adminDrawer = document.getElementById('adminDrawer');
     const adminOverlay = document.getElementById('adminOverlay');
     const openDrawerBtn = document.getElementById('openDrawerBtn');
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'index.html';
     });
 
-    // 3. Перемикач вкладок
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -67,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // Дефолтна сьогоднішня дата
     const todayStr = new Date().toISOString().split('T')[0];
     document.getElementById('taskDateInput').value = todayStr;
     document.getElementById('noteDateInput').value = todayStr;
@@ -78,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${parts[2]}.${parts[1]}.${parts[0]}`;
     }
 
-    // 4. Логіка Задач (To-Do)
+    // Tasks
     const taskInput = document.getElementById('newTaskInput');
     const taskDateInput = document.getElementById('taskDateInput');
     const taskList = document.getElementById('taskList');
@@ -128,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderTasks();
     };
 
-    // 5. Логіка Нотаток та Фінансів
+    // Notes
     const noteInput = document.getElementById('newNoteInput');
     const noteDateInput = document.getElementById('noteDateInput');
     const notesList = document.getElementById('notesList');

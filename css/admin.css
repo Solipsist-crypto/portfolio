@@ -34,6 +34,7 @@
     top: 0;
     right: -450px;
     width: 420px;
+    max-width: 100vw;
     height: 100vh;
     background: var(--bg-card);
     border-left: 1px solid var(--border-hover);
@@ -92,10 +93,6 @@
     cursor: pointer;
 }
 
-.close-drawer-btn:hover {
-    color: var(--purple-glow);
-}
-
 /* Tabs */
 .admin-tabs {
     display: flex;
@@ -116,7 +113,6 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: var(--transition);
 }
 
 .tab-btn.active {
@@ -195,7 +191,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: var(--transition);
 }
 
 .item-card.completed {
@@ -233,16 +228,8 @@
 .item-actions i {
     cursor: pointer;
     color: var(--text-dim);
-    transition: var(--transition);
 }
 
 .item-actions i:hover {
     color: var(--purple-glow);
-}
-
-@media (max-width: 480px) {
-    .admin-drawer {
-        width: 100vw;
-        right: -100vw;
-    }
 }

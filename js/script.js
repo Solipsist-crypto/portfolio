@@ -13,7 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Анімація лічильників статистики
+    // 2. Мобільне бургер-меню
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (burgerBtn && navLinks) {
+        burgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 3. Анімація лічильників статистики
     const statCards = document.querySelectorAll('.stat-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -40,25 +56,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     statCards.forEach(card => observer.observe(card));
 });
-
-// 5. Admin Panel Login Logic
-const adminBtn = document.getElementById('adminBtn');
-
-if (adminBtn) {
-    adminBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Вкажи свій пароль тут:
-        const SECRET_PASS = "8523146"; // Зміни на свій надійний пароль
-        
-        const userInput = prompt("Введіть пароль адміністратора:");
-        
-        if (userInput === SECRET_PASS) {
-            // Зберігаємо сесію, щоб адмінка знала, що вхід успішний
-            sessionStorage.setItem('isAdmin', 'true');
-            window.location.href = 'admin.html';
-        } else if (userInput !== null) {
-            alert("Невірний пароль!");
-        }
-    });
-}
