@@ -1,29 +1,15 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    // SHA-256 хеш для пароля 8523146
-    const PASS_HASH = "5ca3c4bc1619808a9ec3848b7a635bcbd25ed1e8a8ea1eef7dbcf9efd01ee7c9";
-
-    async function hashPassword(password) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(password);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // Пароль для входу
+    const SECRET_PASS = "8523146";
 
     // Автоперевірка доступу
     if (sessionStorage.getItem('isAdmin') !== 'true') {
         const userInput = prompt("Введіть пароль адміністратора:");
 
-        if (userInput) {
-            const inputHash = await hashPassword(userInput.trim());
-            if (inputHash === PASS_HASH) {
-                sessionStorage.setItem('isAdmin', 'true');
-            } else {
-                alert("Невірний пароль!");
-                window.location.href = 'index.html';
-                return;
-            }
+        if (userInput !== null && userInput.trim() === SECRET_PASS) {
+            sessionStorage.setItem('isAdmin', 'true');
         } else {
+            alert("Невірний пароль!");
             window.location.href = 'index.html';
             return;
         }
@@ -46,14 +32,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         adminOverlay.classList.remove('open');
     }
 
-    openDrawerBtn.addEventListener('click', openDrawer);
-    closeDrawerBtn.addEventListener('click', closeDrawer);
-    adminOverlay.addEventListener('click', closeDrawer);
+    if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+    if (adminOverlay) adminOverlay.addEventListener('click', closeDrawer);
 
-    logoutBtn.addEventListener('click', () => {
-        sessionStorage.removeItem('isAdmin');
-        window.location.href = 'index.html';
-    });
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('isAdmin');
+            window.location.href = 'index.html';
+        });
+    }
 
     // Перемикач вкладок
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -65,14 +53,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             tabContents.forEach(c => c.classList.remove('active'));
 
             btn.classList.add('active');
-            document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+            const targetTab = document.getElementById(btn.getAttribute('data-tab'));
+            if (targetTab) targetTab.classList.add('active');
         });
     });
 
     // Дефолтна дата
     const todayStr = new Date().toISOString().split('T')[0];
-    document.getElementById('taskDateInput').value = todayStr;
-    document.getElementById('noteDateInput').value = todayStr;
+    const taskDateInput = document.getElementById('taskDateInput');
+    const noteDateInput = document.getElementById('noteDateInput');
+    if (taskDateInput) taskDateInput.value = todayStr;
+    if (noteDateInput) noteDateInput.value = todayStr;
 
     function formatDate(dateStr) {
         if (!dateStr) return '';
@@ -82,13 +73,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Логіка Задач (To-Do) ---
     const taskInput = document.getElementById('newTaskInput');
-    const taskDateInput = document.getElementById('taskDateInput');
     const taskList = document.getElementById('taskList');
     const addTaskBtn = document.getElementById('addTaskBtn');
 
     let tasks = JSON.parse(localStorage.getItem('adminTasks')) || [];
 
     function renderTasks() {
+        if (!taskList) return;
         taskList.innerHTML = '';
         tasks.forEach((task, index) => {
             const li = document.createElement('li');
@@ -109,17 +100,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('adminTasks', JSON.stringify(tasks));
     }
 
-    addTaskBtn.addEventListener('click', () => {
-        if (taskInput.value.trim()) {
-            tasks.push({
-                text: taskInput.value.trim(),
-                date: taskDateInput.value,
-                completed: false
-            });
-            taskInput.value = '';
-            renderTasks();
-        }
-    });
+    if (addTaskBtn) {
+        addTaskBtn.addEventListener('click', () => {
+            if (taskInput && taskInput.value.trim()) {
+                tasks.push({
+                    text: taskInput.value.trim(),
+                    date: taskDateInput ? taskDateInput.value : todayStr,
+                    completed: false
+                });
+                taskInput.value = '';
+                renderTasks();
+            }
+        });
+    }
 
     window.toggleTask = function(index) {
         tasks[index].completed = !tasks[index].completed;
@@ -142,13 +135,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Логіка Нотаток та Фінансів ---
     const noteInput = document.getElementById('newNoteInput');
-    const noteDateInput = document.getElementById('noteDateInput');
     const notesList = document.getElementById('notesList');
     const addNoteBtn = document.getElementById('addNoteBtn');
 
     let notes = JSON.parse(localStorage.getItem('adminDatedNotes')) || [];
 
     function renderNotes() {
+        if (!notesList) return;
         notesList.innerHTML = '';
         notes.forEach((note, index) => {
             const div = document.createElement('div');
@@ -168,16 +161,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('adminDatedNotes', JSON.stringify(notes));
     }
 
-    addNoteBtn.addEventListener('click', () => {
-        if (noteInput.value.trim()) {
-            notes.unshift({
-                text: noteInput.value.trim(),
-                date: noteDateInput.value
-            });
-            noteInput.value = '';
-            renderNotes();
-        }
-    });
+    if (addNoteBtn) {
+        addNoteBtn.addEventListener('click', () => {
+            if (noteInput && noteInput.value.trim()) {
+                notes.unshift({
+                    text: noteInput.value.trim(),
+                    date: noteDateInput ? noteDateInput.value : todayStr
+                });
+                noteInput.value = '';
+                renderNotes();
+            }
+        });
+    }
 
     window.deleteNote = function(index) {
         notes.splice(index, 1);
